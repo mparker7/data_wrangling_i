@@ -10,3 +10,43 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 ```
 
+
+Import data
+```{r}
+litters_data = read_csv(file = "./data/FAS_litters.csv")
+litters_data <- janitor::clean_names(litters_data)
+
+pups_data = read_csv(file = "./data/FAS_pups.csv")
+pups_data <- janitor::clean_names(pups_data)
+```
+
+
+## Selecting!!!
+
+```{r}
+select(litters_data, group, litter_number)
+
+select(litters_data, group, litter_number, gd0_weight)
+
+select(litters_data, group, litter_number, gd0_weight, starts_with("pups"))
+
+select(litters_data, litter_number, group, gd0_weight)
+
+select(litters_data, litter_number, group, everything())
+
+select(litters_data, -group)
+
+select(litters_data, litter_number, gd0_weight:pups_born_alive)
+
+select(litters_data, GROUP = group, litter_number)
+
+rename(litters_data, GROUP = group)
+```
+
+
+## Filtering!!!
+
+```{r}
+
+```
+
